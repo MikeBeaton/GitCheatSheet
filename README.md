@@ -15,7 +15,7 @@ To create a brand new repository from existing code (also includes how to make S
     git remote add origin https://github.com/GRP-IT/GradWebsiteMVC (or whatever repository name)
     git push -u origin master (or whatever   name)
     (If you are co-existing with SVN, you will also want to add .git and .gitignore the the svn:ignore properties to make SVN ignore Git files. You should do this recursively (i.e. so it applies it to this and all subdirectories) as we have always added all svn:ignore properties recursively up to now.)
-    
+
 Get a copy of a remote repository:
 
     cd /c/Projects/
@@ -29,48 +29,41 @@ Show my branches:
     git branch -r
     git branch -vv
     git branch -r -vv
-    
-Put all pending changes on a new branch:
 
-    "If you haven't already committed your changes, just use git checkout to move to the new branch and then commit them normally - changes to files are not tied to a particular branch until you commit them."
-    
-        i.e. git checkout -b BranchName
-    
-    Then you're ready to do:
-    
-        ... (it with VS Code, for example!)
-    
+Put all pending changes on a new branch ("If you haven't already committed your changes, just use git checkout to move to the new branch and then commit them normally - changes to files are not tied to a particular branch until you commit them.")
+
+    git checkout -b MyTest
+
+Then once your new branch is ready, to put it up on the server:
+
+    git push -u origin MyTest
+
 Add an upstream repository:
 
     git remote add upstream https://github.com/FransBouma/Massive
     git fetch upstream
-  
+
 Show contents of a remote:
 
     git remote show origin
     git remote show upstream
-    
+
 (For more/different detail use `git ls-remote origin`, `git ls-remote upstream`.)
 
 Show pending changes; for a given file; show the actual diff:
 
     git status
     git status tests/Oracle/App.config
-    git diff tests/Oracle/App.confi 
+    git diff tests/Oracle/App.config
 
 Add a branch (but see below about tracking branches):
 
     git branch piggle
-    
+
 Remove a branch:
 
     git branch -d piggle
-    
-Create a new branch, then push it and set it to track same name branch on origin:
 
-    git checkout -b MyTest
-    git push -u origin MyTest
-    
 Interactively rebase my changes from BranchA onto a NEW BranchB:
 
     [create BranchB - as above]
@@ -105,27 +98,27 @@ It sounds like it should be difficult, but it is very easy to change the upstrea
 It is also ridiculously easy, even though it sounds like it should be impossible, to rebase a branch onto basically anything:
 
     git rebase upstream/v2.0
-    
+
 NB This works just fine, even on a local branch which is tracking origin, and NOT upstream!
 
 Push changes on current branch back to what it is tracking (usually you will be tracking origin, and will not even have permissions to do this, if you are tracking upstream):
 
     git push
-    
+
 Force push the changes back if you've been doing rebasing, etc:
 
     git push -f
 
 May also be useful to see what your branches are pointing at (but does NOT include everything visible from the above commands):
 
-    notepad++ .git/config 
+    notepad++ .git/config
 
 The two built-in git gui programs
 (use & at then end to start a program from the command line and return straight to the command line):
 
     gitk &
     git-gui &
-    
+
 gitk is useful once you start to understand what git is doing; it shows the branch and revision graph for the project
 NB You can show the same graph (even coloured) from the command line:
 
@@ -162,7 +155,7 @@ Abandon all local changes
 git stash; git stash drop; works):
 
     git checkout -- .
-    
+
 (I think it should be `git checkout -- *`, shouldn't it?)
 
 Amend the last commit:
@@ -172,11 +165,11 @@ Amend the last commit:
 Interactively squash the last n changes:
 
     git rebase -i HEAD~2
-    
+
 Rebase all the way to the first commit (which can't be done with the above) (https://stackoverflow.com/a/2309391/795690):
 
     git rebase -i --root
-    
+
 Split a commit:
 
     git rebase -i HEAD~1 (or as far back as needed to include the one to split)
@@ -194,9 +187,9 @@ Set editor:
 Show what you've been doing:
 
     git reflog
-    
+
 Just in case it's not obvious this isn't re-flog - a dead horse, for instance - but reference log.
-    
+
 Split a commit:
 
     git rebase -i HEAD~1
@@ -204,7 +197,7 @@ Split a commit:
     git reset HEAD~
     [Commit the pieces individually in the usual way, producing as many commits as you need]
     git rebase --continue
-    
+
 To push local repository to new remote, first add empty remote repository, then:
 
     git remote add origin https://github.com/GRP-IT/TigerMVC
@@ -212,21 +205,21 @@ To push local repository to new remote, first add empty remote repository, then:
 Then to push to a different, named upstream repository and set as new upstream (will work on new empty upstream):
 
     git push -u origin master
-    
+
 (There's another way to stuff everything into an empty repository, isn't there?)
 
 Push to a new remote branch:
 
     git push public HEAD:test
-    
+
 Create a new local branch:
 
     git checkout -b test
-    
+
 And push it to the upstream:
 
     git push --set-upstream origin test
-    
+
 Clean/delete unnecessary directories and files and git ignored files:
 
     git clean -dfx
@@ -234,7 +227,7 @@ Clean/delete unnecessary directories and files and git ignored files:
 Move a branch back to an earlier commit:
 
     git reset --hard 2f005bc
-    
+
 Move a branch back to an earlier commit but keep your changes as unstaged commits:
 
     git reset b47b3c4
@@ -242,24 +235,24 @@ Move a branch back to an earlier commit but keep your changes as unstaged commit
 Reset/restore/abandon local changes to a single file:
 
     git checkout -- tests/SqlServer/AsyncReadTests.cs
-    
+
 http://stackoverflow.com/a/34455483/795690
 To stage all manually deleted files you can use:
 
     git rm $(git ls-files --deleted)
-    
+
 To add an alias to this command as git rm-deleted, run:
 
     git config --global alias.rm-deleted '!git rm $(git ls-files --deleted)'
-    
+
 To make a (default type) tag:
 
     git tag <tagname>
-    
+
 To push the tag to the server:
 
     git push <remote> <tagname>
-    
+
 To push one branch to another (https://stackoverflow.com/a/13897766/795690):
 
     git push origin develop:release/test
