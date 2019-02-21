@@ -173,6 +173,10 @@ Interactively squash the last n changes:
 
     git rebase -i HEAD~2
     
+Rebase all the way to the first commit (which can't be done with the above):
+
+    git rebase -i --root
+    
 Split a commit:
 
     git rebase -i HEAD~1 (or as far back as needed to include the one to split)
