@@ -14,7 +14,7 @@ To create a brand new repository from existing code (also includes how to make S
     (Make sure that the user you are committing as has write permissions on the repository, otherwise it will look like it is just not there)
     git remote add origin https://github.com/GRP-IT/GradWebsiteMVC (or whatever repository name)
     git push -u origin master (or whatever   name)
-    (If you are co-existing with SVN, you will also want to add .git and .gitignore the the svn:ignore properties to make SVN ignore Git files. You should do this recursively (i.e. so it applies it to this and all subdirectories) as we have always added all svn:ignore properties recursively up to now.)
+    (If you are co-existing with SVN, you will also want to add .git and .gitignore the the svn:ignore properties to make SVN ignore Git files. You should do this recursively (i.e. so it applies it to this and all subdirectories) if you normally apply all svn:ignore properties recursively.)
 
 Get a copy of a remote repository:
 
