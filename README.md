@@ -173,7 +173,7 @@ Interactively squash the last n changes:
 
     git rebase -i HEAD~2
     
-Rebase all the way to the first commit (which can't be done with the above):
+Rebase all the way to the first commit (which can't be done with the above) (https://stackoverflow.com/a/2309391/795690):
 
     git rebase -i --root
     
