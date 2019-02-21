@@ -191,6 +191,8 @@ Show what you've been doing:
 
     git reflog
     
+Just in case it's not obvious this isn't re-flog - a dead horse, for instance - but reference log.
+    
 Split a commit:
 
     git rebase -i HEAD~1
