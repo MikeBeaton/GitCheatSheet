@@ -256,3 +256,12 @@ To push the tag to the server:
 To push one branch to another (https://stackoverflow.com/a/13897766/795690):
 
     git push origin develop:release/test
+
+https://stackoverflow.com/a/6591218/795690
+If you want to rename a branch while pointed to any branch, do:
+
+    git branch -m <oldname> <newname>
+
+If you want to rename the current branch, you can do:
+
+    git branch -m <newname>
