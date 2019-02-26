@@ -255,6 +255,7 @@ To push the tag to the server:
 
 To push one branch to another (https://stackoverflow.com/a/13897766/795690):
 
+	git push <dest-remote> <local-branch>:<dest-branch>
     git push origin develop:release/test
 
 (https://stackoverflow.com/a/6591218/795690)  
