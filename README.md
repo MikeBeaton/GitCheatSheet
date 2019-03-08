@@ -12,9 +12,20 @@ To create a brand new repository from existing code (also includes how to make S
     git commit -m 'Initial commit' (Put everything from staging into your local Git, so it's no longer empty)
     (Now create the remote repository where you want the code to live, if you haven't already)
     (Make sure that the user you are committing as has write permissions on the repository, otherwise it will look like it is just not there)
-    git remote add origin https://github.com/GRP-IT/GradWebsiteMVC (or whatever repository name)
-    git push -u origin master (or whatever   name)
-    (If you are co-existing with SVN, you will also want to add .git and .gitignore the the svn:ignore properties to make SVN ignore Git files. You should do this recursively (i.e. so it applies it to this and all subdirectories) if you normally apply all svn:ignore properties recursively.)
+    git remote add origin [git-repo-url]
+    git push --set-upstream|-u origin master
+
+You can make a git repository co-exist with an SVN repository by adding `.git` and `.gitignore` the the `svn:ignore` properties, to make SVN ignore Git files. But this is not what you want to do!
+
+Use:
+
+	git svn clone --stdlayout --authors-file=[authors-file] [repo-url] [git-folder]
+
+to create a git version of an svn repository. Get the author name and emaill address right in `[authors-file]`, if you want to link to real Git users. After which:
+
+	git svn fetch
+
+will fetch any further changes made in SVN.
 
 Get a copy of a remote repository:
 
