@@ -21,7 +21,7 @@ Use:
 
 	git svn clone --stdlayout --authors-file=[authors-file] [repo-url] [git-folder]
 
-to create a git version of an svn repository. Get the author name and emaill address right in `[authors-file]`, if you want to link to real Git users. After which:
+to create a Git version of an SVN repository. (Get the author name and emaill address right in `[authors-file]`, if you want to link to real Git users.) After which:
 
 	git svn fetch
 
