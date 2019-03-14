@@ -169,6 +169,10 @@ git stash; git stash drop; works):
 
 (I think it should be `git checkout -- *`, shouldn't it?)
 
+Unstage a file or files:
+
+    git reset -- <filePath>
+
 Amend the last commit:
 
     git commit --amend
