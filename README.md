@@ -281,3 +281,7 @@ If you want to rename a branch while pointed to any branch, do:
 If you want to rename the current branch, you can do:
 
     git branch -m <newname>
+
+Show the commit(s) on which specific text was introduced into the repository (e.g.):
+
+    git log -S"public virtual IEnumerable<dynamic> Query"
